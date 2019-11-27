@@ -11,7 +11,7 @@ namespace Models
     {
         [Key]
         [Column("ID_USUARIO")]
-        public int Codigo { get; set; }
+        public long Codigo { get; set; }
 
         [Required(ErrorMessage = "Nome é obrigatório")]
         [Column("NM_USUARIO")]
@@ -34,7 +34,7 @@ namespace Models
         [Required]
         [Column("TP_USUARIO")]
         [ForeignKey("TP_USUARIO")]
-        public int TipoUsuarioCodigo { get; set; }
+        public long TipoUsuarioCodigo { get; set; }
 
         public virtual TipoUsuario TipoUsuario { get; set; }
 

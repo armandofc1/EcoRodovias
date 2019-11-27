@@ -2,6 +2,7 @@ namespace Data
 {
     public abstract class Entidade
     {
-        public int Codigo { get; set; }
+        public long Codigo { get; set; }
+        public string Nome { get; set; }
     }
 }

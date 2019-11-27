@@ -55,8 +55,8 @@ namespace EcoRodovias
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
                 endpoints.MapRazorPages();
+                endpoints.MapControllers();
             });
         }
     }

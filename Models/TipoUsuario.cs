@@ -16,11 +16,11 @@ namespace Models
 
         [Key]
         [Column("TP_USUARIO")]
-        public int Codigo { get; set; }
+        public long Codigo { get; set; }
 
         [Required(ErrorMessage = "Tipo é obrigatório")]
         [Column("NM_TIPO")]
-        public string Tipo { get; set; }
+        public string Nome { get; set; }
 
         public virtual ICollection<Usuario> Usuarios { get; set; }
     }

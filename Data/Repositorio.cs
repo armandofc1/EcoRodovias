@@ -20,11 +20,20 @@ namespace Data
             }
         }
 
-        public IList<T> PesquisarPorCodigo(long codigo)
+        public T PesquisarPorCodigo(long codigo)
         {
             using (var context = new GenericContext<T>())
             {
-                var all = context.Entity.Where(x => x.Codigo == codigo).OrderBy(x => x.Codigo).ToList();
+                var all = context.Entity.Where(x => x.Codigo.Equals(codigo));
+                return all != null && all.Count() > 0 ? all.FirstOrDefault() : null;
+            }
+        }
+
+        public IList<T> PesquisarPorNome (string nome)
+        {
+            using (var context = new GenericContext<T>())
+            {
+                var all = context.Entity.Where(x => x.Nome.Equals(nome)).OrderBy(x => x.Nome).ToList();
                 return all;
             }
         }
