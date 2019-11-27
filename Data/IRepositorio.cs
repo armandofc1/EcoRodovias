@@ -7,7 +7,7 @@ namespace Data
 {    public interface IRepositorio<T> where T : class
     {
         IList<T> PesquisarTodos();
-        IList<T> PesquisarPorId(long id);
+        IList<T> PesquisarPorCodigo(long id);
         void Inserir(T entity);
         void InserirVarios(List<T> entities);
         void Atualizar(T entity);

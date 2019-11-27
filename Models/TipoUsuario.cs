@@ -6,7 +6,7 @@ using Data;
 
 namespace Models
 {
-    [Table("USUARIO")]
+    [Table("TIPO_USUARIO")]
     public class TipoUsuario : Entidade
     {
         public TipoUsuario()
@@ -14,7 +14,6 @@ namespace Models
             Usuarios = new HashSet<Usuario>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         [Column("TP_USUARIO")]
         public int Codigo { get; set; }

@@ -9,10 +9,9 @@ namespace Models
     [Table("USUARIO")]
     public class Usuario : Entidade
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         [Column("ID_USUARIO")]
-        public int Codigo {get;set;}
+        public int Codigo { get; set; }
 
         [Required(ErrorMessage = "Nome é obrigatório")]
         [Column("NM_USUARIO")]
@@ -24,14 +23,20 @@ namespace Models
         [Column("NR_TELEFONE")]
         public string Telefone { get; set; }
 
+        [Required]
         [Column("NM_EMAIL")]
         public string Email { get; set; }
 
+        [Required]
         [Column("NM_SENHA")]
         public string Senha { get; set; }
 
+        [Required]
+        [Column("TP_USUARIO")]
+        [ForeignKey("TP_USUARIO")]
         public int TipoUsuarioCodigo { get; set; }
-        [ForeignKey("TipoUsuarioCodigo")]
+
         public virtual TipoUsuario TipoUsuario { get; set; }
+
     }
 }

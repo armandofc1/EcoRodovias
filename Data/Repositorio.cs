@@ -15,16 +15,16 @@ namespace Data
         {
             using (var context = new GenericContext<T>())
             {
-                var all = context.Entity.OrderBy(x => x.Id).ToList();
+                var all = context.Entity.OrderBy(x => x.Codigo).ToList();
                 return all;
             }
         }
 
-        public IList<T> PesquisarPorId(long id)
+        public IList<T> PesquisarPorCodigo(long codigo)
         {
             using (var context = new GenericContext<T>())
             {
-                var all = context.Entity.Where(x => x.Id == id).OrderBy(x => x.Id).ToList();
+                var all = context.Entity.Where(x => x.Codigo == codigo).OrderBy(x => x.Codigo).ToList();
                 return all;
             }
         }
