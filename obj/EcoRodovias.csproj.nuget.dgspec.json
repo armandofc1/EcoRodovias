@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Armando\\Documents\\GitHub\\EcoRodovias\\EcoRodovias.csproj": {}
+    "D:\\projetos\\dotnet_core\\estudo\\EcoRodovias\\EcoRodovias.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Armando\\Documents\\GitHub\\EcoRodovias\\EcoRodovias.csproj": {
+    "D:\\projetos\\dotnet_core\\estudo\\EcoRodovias\\EcoRodovias.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Armando\\Documents\\GitHub\\EcoRodovias\\EcoRodovias.csproj",
+        "projectUniqueName": "D:\\projetos\\dotnet_core\\estudo\\EcoRodovias\\EcoRodovias.csproj",
         "projectName": "EcoRodovias",
-        "projectPath": "C:\\Users\\Armando\\Documents\\GitHub\\EcoRodovias\\EcoRodovias.csproj",
-        "packagesPath": "C:\\Users\\Armando\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Armando\\Documents\\GitHub\\EcoRodovias\\obj\\",
+        "projectPath": "D:\\projetos\\dotnet_core\\estudo\\EcoRodovias\\EcoRodovias.csproj",
+        "packagesPath": "C:\\Users\\afcosta\\.nuget\\packages\\",
+        "outputPath": "D:\\projetos\\dotnet_core\\estudo\\EcoRodovias\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Armando\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\afcosta\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
