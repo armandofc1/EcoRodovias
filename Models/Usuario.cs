@@ -9,30 +9,30 @@ namespace Models
     [Table("USUARIO")]
     public class Usuario : Entidade
     {
-        public Usuario()
-        {
-            Chamados = new HashSet<Chamado>();
-            Atendimentos = new HashSet<Chamado>();
-        }
-
+        [Display(Name = "Código")]
         [Key]
         [Column("ID_USUARIO")]
         public long Codigo { get; set; }
 
+        [Display(Name = "Nome")]
         [Required(ErrorMessage = "Nome é obrigatório")]
         [Column("NM_USUARIO")]
         public string Nome { get; set; }
 
+        [Display(Name = "CPF")]
         [Column("NR_CPF")]
-        public Int64 CPF { get; set; }
+        public long CPF { get; set; }
 
+        [Display(Name = "Telefone")]
         [Column("NR_TELEFONE")]
         public string Telefone { get; set; }
 
+        [Display(Name = "Email")]
         [Required]
         [Column("NM_EMAIL")]
         public string Email { get; set; }
 
+        [Display(Name = "Senha")]
         [Required]
         [Column("NM_SENHA")]
         public string Senha { get; set; }
@@ -43,9 +43,5 @@ namespace Models
         public long TipoUsuarioCodigo { get; set; }
 
         public virtual TipoUsuario TipoUsuario { get; set; }
-
-        public virtual ICollection<Chamado> Chamados { get; set; }
-
-        public virtual ICollection<Chamado> Atendimentos { get; set; }
     }
 }

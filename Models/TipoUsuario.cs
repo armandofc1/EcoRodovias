@@ -9,11 +9,6 @@ namespace Models
     [Table("TIPO_USUARIO")]
     public class TipoUsuario : Entidade
     {
-        public TipoUsuario()
-        {
-            Usuarios = new HashSet<Usuario>();
-        }
-
         [Key]
         [Column("TP_USUARIO")]
         public long Codigo { get; set; }
@@ -21,7 +16,5 @@ namespace Models
         [Required(ErrorMessage = "Tipo é obrigatório")]
         [Column("NM_TIPO")]
         public string Nome { get; set; }
-
-        public virtual ICollection<Usuario> Usuarios { get; set; }
     }
 }

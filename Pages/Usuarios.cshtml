@@ -1,0 +1,60 @@
+﻿@page
+@model UsuariosModel
+@{
+    ViewData["Title"] = "Usuários";
+}
+
+<div class="text-center">
+    <h1 class="display-5">@ViewData["Title"]</h1>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuarios[0].Codigo)
+            </th>
+            <th>
+                Tipo
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuarios[0].Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuarios[0].CPF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuarios[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuarios[0].Telefone)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Usuarios)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Codigo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoUsuario.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CPF)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefone)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
