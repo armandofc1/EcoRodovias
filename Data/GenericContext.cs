@@ -5,8 +5,9 @@ using System.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Oracle.EntityFrameworkCore;
 //using Microsoft.EntityFrameworkCore.SqlServer;
-//using Microsoft.EntityFrameworkCore.Proxies;
+using Microsoft.EntityFrameworkCore.Proxies;
 using Microsoft.Extensions.Configuration;
+using Models;
 
 namespace Data
 {
@@ -21,8 +22,16 @@ namespace Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<TipoUsuario>().HasMany(s => s.Usuarios).WithOne(s => s.TipoUsuario);
+            modelBuilder.Entity<Usuario>().HasOne(s => s.TipoUsuario).WithMany(s => s.Usuarios);
+            modelBuilder.Entity<Usuario>().HasMany(s => s.Chamados).WithOne(s => s.Usuario);
+            modelBuilder.Entity<Usuario>().HasMany(s => s.Atendimentos).WithOne(s => s.Atendente);
+            modelBuilder.Entity<Chamado>().HasOne(s => s.Usuario).WithMany(s => s.Chamados);
+            modelBuilder.Entity<Chamado>().HasOne(s => s.Atendente).WithMany(s => s.Atendimentos);
+
             base.OnModelCreating(modelBuilder);
         }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

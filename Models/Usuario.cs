@@ -9,6 +9,12 @@ namespace Models
     [Table("USUARIO")]
     public class Usuario : Entidade
     {
+        public Usuario()
+        {
+            Chamados = new HashSet<Chamado>();
+            Atendimentos = new HashSet<Chamado>();
+        }
+
         [Key]
         [Column("ID_USUARIO")]
         public long Codigo { get; set; }
@@ -38,5 +44,8 @@ namespace Models
 
         public virtual TipoUsuario TipoUsuario { get; set; }
 
+        public virtual ICollection<Chamado> Chamados { get; set; }
+
+        public virtual ICollection<Chamado> Atendimentos { get; set; }
     }
 }

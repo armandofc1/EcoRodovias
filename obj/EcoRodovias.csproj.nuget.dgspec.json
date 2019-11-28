@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\projetos\\dotnet_core\\estudo\\EcoRodovias\\EcoRodovias.csproj": {}
+    "C:\\Users\\Armando\\Documents\\GitHub\\EcoRodovias\\EcoRodovias.csproj": {}
   },
   "projects": {
-    "D:\\projetos\\dotnet_core\\estudo\\EcoRodovias\\EcoRodovias.csproj": {
+    "C:\\Users\\Armando\\Documents\\GitHub\\EcoRodovias\\EcoRodovias.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\projetos\\dotnet_core\\estudo\\EcoRodovias\\EcoRodovias.csproj",
+        "projectUniqueName": "C:\\Users\\Armando\\Documents\\GitHub\\EcoRodovias\\EcoRodovias.csproj",
         "projectName": "EcoRodovias",
-        "projectPath": "D:\\projetos\\dotnet_core\\estudo\\EcoRodovias\\EcoRodovias.csproj",
-        "packagesPath": "C:\\Users\\afcosta\\.nuget\\packages\\",
-        "outputPath": "D:\\projetos\\dotnet_core\\estudo\\EcoRodovias\\obj\\",
+        "projectPath": "C:\\Users\\Armando\\Documents\\GitHub\\EcoRodovias\\EcoRodovias.csproj",
+        "packagesPath": "C:\\Users\\Armando\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Armando\\Documents\\GitHub\\EcoRodovias\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\afcosta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Armando\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -41,13 +41,25 @@
       "frameworks": {
         "netcoreapp3.0": {
           "dependencies": {
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[2.2.0, )"
             },
-            "Microsoft.EntityFrameworkCore.Relational": {
+            "Microsoft.EntityFrameworkCore.Proxies": {
               "target": "Package",
               "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.0.0, )"
             },
             "Oracle.EntityFrameworkCore": {
               "target": "Package",

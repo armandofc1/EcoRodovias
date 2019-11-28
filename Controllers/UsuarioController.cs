@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Data;
 using Models;
 
@@ -12,88 +13,88 @@ namespace EcoRodovias.Controllers
     [Route("api/[controller]")]
     public class UsuarioController : ControllerBase
     {
-        private readonly Repositorio<Usuario> _context;
+        private readonly EcoRodoviasContext _context;
 
         public UsuarioController()
         {
-            _context = new Repositorio<Usuario>();
+            _context = new EcoRodoviasContext();
         }
 
         // GET: api/usuario
         [HttpGet]
-        public IEnumerable<Usuario> Get()
+        public async Task<ActionResult<IEnumerable<Usuario>>> Get()
         {
-            //Repositorio<TipoUsuario> _contextTipo = new Repositorio<TipoUsuario>();
-
-            //var tipo = new TipoUsuario();
-            //tipo.Codigo = 1; // Guid.NewGuid();
-            //tipo.Tipo = "admin";
-
-            //_contextTipo.Inserir(tipo);
-
-            //var usuario = new Usuario();
-            //usuario.Codigo = 5;  //Guid.NewGuid();
-            //usuario.Nome = "Teste";
-            //usuario.Senha = "senha";
-            //usuario.Email = "email@email.com";
-            //usuario.Telefone = "11 2323-5454";
-            //usuario.CPF = 3133670858;
-            //usuario.TipoUsuarioCodigo = 1;
-
-            //_context.Inserir(usuario);
-
-            return _context.PesquisarTodos().ToList();
+            return await _context.Usuarios.Include(usuario => usuario.TipoUsuario).ToListAsync();
         }
 
         // GET: api/usuario/1
         [HttpGet("{codigo}")]
-        public Usuario Get(int codigo)
+        public async Task<ActionResult<Usuario>> Get(int codigo)
         {
-            var model = _context.PesquisarPorCodigo(codigo);
-            if (model != null)
+
+
+            // return await _context.Usuarios.Include(tip => tip.TipoUsuario).ToListAsync().Result.FirstOrDefault(usu => usu.Codigo.Equals(codigo));
+
+            var model = _context.Usuarios.Include(usu => usu.TipoUsuario).Where(usu => usu.Codigo.Equals(codigo));
+            if (model != null && model.Count() > 0)
             {
-                return model;
+                return await model.FirstAsync();
             }
-            return new Usuario();
-        }
-
-
-        // POST api/usuario
-        /// <summary>
-        /// Cria uma usuario
-        /// </summary>
-        /// <remarks>
-        /// Exemplo:
-        ///
-        ///     POST api/usuario
-        ///     {
-        ///        "nome": "Nome Categoria",
-        ///        "descricao": "Descrição Categoria"
-        ///     }
-        ///
-        /// </remarks>
-        /// <param name="value"></param>
-        /// <returns>Um novo item criado</returns>
-        /// <response code="201">Retorna o novo item criado</response>
-        /// <response code="400">Se o item não for criado</response> 
-        [HttpPost]
-        public ActionResult<Usuario> Post([FromBody] Usuario postModel)
-        {
-            if (postModel == null)
+            else
             {
                 return BadRequest();
             }
-
-            Usuario model = new Usuario();
-            //{
-            //    Nome = postModel.GetValue("Nome").Value<string>(),
-            //    Descricao = postModel.GetValue("Descricao").Value<string>()
-            //};
-
-            //_context.Inserir(model);
-
-            return CreatedAtAction(nameof(Get), new { codigo = model.Codigo }, model);
         }
+
+        //// GET: api/usuario/1
+        //[HttpGet("{codigo}")]
+        //public ActionResult<Usuario> Get(int codigo)
+        //{
+        //    var parent = _context.Usuarios
+        //    .Where(p => p.Codigo.Equals(codigo))
+        //    .FirstOrDefault();
+        //    _context.Entry(parent).Reference(p => p.TipoUsuario).Load();
+
+        //    return parent;
+        //}
+
+
+        //// POST api/usuario
+        ///// <summary>
+        ///// Cria uma usuario
+        ///// </summary>
+        ///// <remarks>
+        ///// Exemplo:
+        /////
+        /////     POST api/usuario
+        /////     {
+        /////        "nome": "Nome Categoria",
+        /////        "descricao": "Descrição Categoria"
+        /////     }
+        /////
+        ///// </remarks>
+        ///// <param name="value"></param>
+        ///// <returns>Um novo item criado</returns>
+        ///// <response code="201">Retorna o novo item criado</response>
+        ///// <response code="400">Se o item não for criado</response> 
+        //[HttpPost]
+        //public ActionResult<Usuario> Post([FromBody] Usuario postModel)
+        //{
+        //    if (postModel == null)
+        //    {
+        //        return BadRequest();
+        //    }
+
+        //    Usuario model = new Usuario();
+        //    //{
+        //    //    Nome = postModel.GetValue("Nome").Value<string>(),
+        //    //    Descricao = postModel.GetValue("Descricao").Value<string>()
+        //    //};
+
+        //    //_context.Inserir(model);
+
+        //    return CreatedAtAction(nameof(Get), new { codigo = model.Codigo }, model);
+        //}
 
     }
 }
