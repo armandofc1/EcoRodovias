@@ -27,36 +27,36 @@ namespace EcoRodovias.Controllers
             return await _context.Usuarios.Include(usuario => usuario.TipoUsuario).ToListAsync();
         }
 
-        // GET: api/usuario/1
-        [HttpGet("{codigo}")]
-        public async Task<ActionResult<Usuario>> Get(int codigo)
-        {
-
-
-            // return await _context.Usuarios.Include(tip => tip.TipoUsuario).ToListAsync().Result.FirstOrDefault(usu => usu.Codigo.Equals(codigo));
-
-            var model = _context.Usuarios.Include(usu => usu.TipoUsuario).Where(usu => usu.Codigo.Equals(codigo));
-            if (model != null && model.Count() > 0)
-            {
-                return await model.FirstAsync();
-            }
-            else
-            {
-                return BadRequest();
-            }
-        }
-
         //// GET: api/usuario/1
         //[HttpGet("{codigo}")]
-        //public ActionResult<Usuario> Get(int codigo)
+        //public async Task<ActionResult<Usuario>> Get(int codigo)
         //{
-        //    var parent = _context.Usuarios
-        //    .Where(p => p.Codigo.Equals(codigo))
-        //    .FirstOrDefault();
-        //    _context.Entry(parent).Reference(p => p.TipoUsuario).Load();
 
-        //    return parent;
+
+        //    // return await _context.Usuarios.Include(tip => tip.TipoUsuario).ToListAsync().Result.FirstOrDefault(usu => usu.Codigo.Equals(codigo));
+
+        //    var model = _context.Usuarios.Include(usu => usu.TipoUsuario).Where(usu => usu.Codigo.Equals(codigo));
+        //    if (model != null && model.Count() > 0)
+        //    {
+        //        return await model.FirstAsync();
+        //    }
+        //    else
+        //    {
+        //        return BadRequest();
+        //    }
         //}
+
+        // GET: api/usuario/1
+        [HttpGet("{codigo}")]
+        public ActionResult<Usuario> Get(int codigo)
+        {
+            var parent = _context.Usuarios
+            .Where(p => p.Codigo.Equals(codigo))
+            .FirstOrDefault();
+            _context.Entry(parent).Reference(p => p.TipoUsuario).Load();
+
+            return parent;
+        }
 
 
         //// POST api/usuario
